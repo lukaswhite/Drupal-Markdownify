@@ -1,0 +1,50 @@
+<?php
+/**
+ * Implements hook_libraries_info().
+ */
+function markdownify_libraries_info() {
+
+  $libraries['markdownify'] = array(
+    'name' => 'Markdownify',
+    'vendor url' => 'http://milianw.de/projects/markdownify/',
+    'download url' => 'http://sourceforge.net/projects/markdownify/files/latest/download?source=files',     
+    'version callback' => 'markdownify_get_version',
+    /**
+    'version arguments' => array(
+      'file' => 'markdownify.php', 
+      'pattern' => '/* @version = (\d+);/',      
+      'lines' => 150,
+    ),
+    **/
+    'files' => array(
+      'php' => array('markdownify.php'),
+    ),
+  );
+
+  return $libraries;
+}
+
+/**
+ * Simple version callback
+ */
+function markdownify_get_version()
+{
+  return '2.0.0 alpha';
+}
+
+/**
+ * libraries_load('markdownify') doesn't seem to make the class available, so add it
+ * to the files registry
+ */
+function markdownify_registry_files_alter(&$files, $modules)
+{
+  if (!class_exists('Markdownify')) {
+    $library_path = function_exists('libraries_get_path') ?
+      libraries_get_path('markdownify') : 'sites/all/libraries/markdownify';
+
+    $files[$library_path . '/markdownify.php'] = array(
+      'module' => 'markdownify',
+      'weight' => 0,
+    );
+  }
+}

@@ -1,0 +1,6 @@
+name = Markdownify
+description = Makes the Markdownify library, for converting HTML to Markdown, available to Drupal
+package = Other
+version = VERSION
+core = 7.x
+dependencies[] = libraries
