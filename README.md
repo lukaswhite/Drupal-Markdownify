@@ -20,7 +20,7 @@ Well, I wrote it so I could use Markdownify as part of a module for exporting a 
 
 ## How do I install it?
 
-In the usual way - bearing in mind it depends on the libraries module - then install the Markdownify library [by clicking here](https://sourceforge.net/projects/markdownify/files/latest/), and place it in 'sites/all/libraries'.
+In the usual way - bearing in mind it depends on the libraries module - then install the Markdownify library [by clicking here](https://sourceforge.net/projects/markdownify/files/latest/), and place it in `sites/all/libraries`.
 
 
 
